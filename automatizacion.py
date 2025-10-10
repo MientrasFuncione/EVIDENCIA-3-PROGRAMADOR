@@ -1,10 +1,6 @@
-# TODO ESTA ORIENTADO A LAS FUNCIONES ESPECIFICAS DE LA ASPIRADORA
-
-
 from gestion import dispositivos, buscar_dispositivo
 
-
-
+# ESTA ORIENTADO A LAS FUNCIONES ESPECIFICAS DE LA ASPIRADORA
 
 def verificar_limpieza(id_dispositivo):
     for dispositivo in dispositivos:
@@ -22,25 +18,22 @@ def verificar_limpieza(id_dispositivo):
                 return f"Su dispositivo {dispositivo['categoria']} está apagado, no se puede verificar el estado."
              elif dispositivo["estado"] == True:
                 if 60 <= dispositivo["indice_de_suciedad"] <= 100:
-                    return f"⚠️  El dispositivo {dispositivo['categoria']} necesita limpieza urgente. Regresa a la base para autolimpieza automática. ¡Índice reseteado!"
+                    return f"  El dispositivo {dispositivo['categoria']} necesita limpieza urgente. Regresa a la base para autolimpieza automática. ¡Índice reseteado!"
                 elif 30 <= dispositivo["indice_de_suciedad"] < 60:
-                    return f"🔄  Su {dispositivo['categoria']} esta en un nivel medio de suciedad. Se recomienda una limpieza preventiva."
+                    return f" Su {dispositivo['categoria']} esta en un nivel medio de suciedad. Se recomienda una limpieza preventiva."
                 elif 0 <= dispositivo["indice_de_suciedad"] < 30:
-                    return f"✅  Su {dispositivo['categoria']} puede seguir funcionando. Nivel óptimo de limpieza."
+                    return f" Su {dispositivo['categoria']} puede seguir funcionando. Nivel óptimo de limpieza."
                 else:
                     return "Índice de suciedad inválido o fuera de rango."
     return "Dispositivo no encontrado."
-
 
 def activar_automatizacion(id_dispositivo, accion):
     dispositivo = buscar_dispositivo(id_dispositivo)
     if not dispositivo:
         return "Dispositivo no encontrado."
 
-
     if dispositivo["categoria"] != "aspiradora":
         return f"La automatización de limpieza solo está disponible para aspiradoras, no para {dispositivo['categoria']}."
-
 
     if accion == "activar":
         dispositivo["estado"] = True
@@ -50,9 +43,6 @@ def activar_automatizacion(id_dispositivo, accion):
         return "Automatización para aspiradora desactivada correctamente."
     else:
         return "Acción inválida. Ingrese 'activar' o 'desactivar'."
-
-
-
 
 def listar_estado_automatizacion():
     resultado = ""
@@ -72,8 +62,7 @@ def listar_estado_automatizacion():
             f"{dispositivo['nombre']} ({dispositivo['categoria']})   "
             f"Automatización: {estado_auto}\n"
         )
-
-
+    
     if resultado == "":
         return "No hay dispositivos registrados."
     return resultado
