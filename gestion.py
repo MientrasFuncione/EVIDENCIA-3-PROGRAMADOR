@@ -2,8 +2,6 @@ dispositivos=[
  {"id_dispositivo":1,"nombre":"santi cafetera", "categoria": "cafetera","marca":"bgh", "estado":True,"indice_de_suciedad": 0, "automatizacion_activa":False},
  {"id_dispositivo":2,"nombre": "roomba alexia","categoria": "aspiradora","marca":"roomba", "estado":True, "indice_de_suciedad": 100, "automatizacion_activa":True}
  ]
-
-
 #1- Para agregar decidimos primero corroborar si estaba registrado, de lo contrario agregarlo
 
 def registrar_dispositivo(id_dispositivo):
@@ -24,7 +22,6 @@ def agregar_dispositivos(id_dispositivo,nombre, categoria, marca):
     dispositivos.append(nuevo_dispositivo)
     return "Dispositivo agregado correctamente"
 
-
 #2 -LISTAR DISPOSITIVO
 
 def listar_dispositivo():
@@ -42,7 +39,6 @@ def buscar_dispositivo(id_dispositivo):
    return None
          # return f"Dispositivo encontrado:{dispositivo}"
    #return f"Dispositivo Inexistente."
-
 
 #4- ELIMINAR DISPOSITIVO
 def eliminar_dispositivo(id_dispositivo):
